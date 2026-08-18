@@ -1,0 +1,37 @@
+name: PR Release Version Validator
+on:
+  workflow_call:
+    inputs:
+      target-branch:
+        type: string
+        required: true
+      version-file:
+        type: string
+        required: true
+      version-file-format:
+        type: string
+        required: true
+      local-patch-prefix:
+        type: string
+        required: false
+
+jobs:
+  validate:
+    name: Validate release version
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Fetch target branch
+        run: git fetch --no-tags origin "${{ github.base_ref }}:refs/remotes/origin/${{ github.base_ref }}"
+
+      - name: Validate
+        uses: mkaraki/mkarakiapps-releasing-tool@v0.1.1
+        with:
+          command: pr-version-validator
+          target-branch: ${{ inputs.target-branch }}
+          version-file: ${{ inputs.version-file }}
+          version-file-format: ${{ inputs.version-file-format }}
+          local-patch-prefix: ${{ inputs.local-patch-prefix }}
