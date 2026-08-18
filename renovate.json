@@ -11,7 +11,7 @@
             ],
             "depNameTemplate": "mkaraki/mkarakiapps-releasing-tool",
             "datasourceTemplate": "github-tags",
-            "versioningTemplate": "semver-coerced"
+            "versioningTemplate": "semver"
         }
     ],
     "packageRules": [
@@ -25,7 +25,8 @@
             "matchPackageNames": [
                 "mkaraki/mkarakiapps-releasing-tool"
             ],
-            "minimumReleaseAge": 0
+            "minimumReleaseAge": 0,
+            "versioningTemplate": "semver"
         },
     ],
     "assignees": [
