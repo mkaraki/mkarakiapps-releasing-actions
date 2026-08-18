@@ -1,0 +1,14 @@
+name: PR Validation (this repo)
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  auto-tag:
+    uses: ./.github/workflows/pr-version-validator.yaml
+    with:
+      target-branch: ${{ github.base_ref }}
+      version-file: VERSION.php
+      version-file-format: php

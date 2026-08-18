@@ -1,0 +1,28 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "customManagers": [
+        {
+            "customType": "regex",
+            "managerFilePatterns": [
+                "/(^|\\/)VERSION\\.php$/"
+            ],
+            "matchStrings": [
+                "const APP_VERSION\\s*=\\s*\"(?<currentValue>v?\\d+\\.\\d+\\.\\d+)\";"
+            ],
+            "depNameTemplate": "mkaraki/mkarakiapps-releasing-tool",
+            "datasourceTemplate": "github-tags",
+            "versioningTemplate": "semver"
+        }
+    ],
+    "packageRules": [
+        {
+            "matchPackageNames": [
+                "actions/*"
+            ],
+            "groupName": "GitHub official actions"
+        }
+    ],
+    "assignees": [
+        "mkaraki"
+    ]
+}
