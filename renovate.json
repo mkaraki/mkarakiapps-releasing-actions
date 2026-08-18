@@ -25,7 +25,6 @@
             "matchPackageNames": [
                 "mkaraki/mkarakiapps-releasing-tool"
             ],
-            "minimumReleaseAge": 0,
             "versioningTemplate": "semver"
         },
     ],
