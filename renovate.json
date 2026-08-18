@@ -20,7 +20,13 @@
                 "actions/*"
             ],
             "groupName": "GitHub official actions"
-        }
+        },
+        {
+            "matchPackageNames": [
+                "mkaraki/mkarakiapps-releasing-tool"
+            ],
+            "minimumReleaseAge": 0
+        },
     ],
     "assignees": [
         "mkaraki"
