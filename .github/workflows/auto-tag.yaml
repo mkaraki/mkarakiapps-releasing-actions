@@ -1,0 +1,52 @@
+name: Auto Tagging
+on:
+  workflow_call:
+    inputs:
+      version-file:
+        type: string
+        required: true
+      version-file-format:
+        type: string
+        required: true
+      local-patch-prefix:
+        type: string
+        required: false
+      scm:
+        type: string
+        required: false
+        default: "github"
+      github-token:
+        type: string
+        required: false
+      owner:
+        type: string
+        required: false
+        default: ${{ github.repository_owner }}
+      repo:
+        type: string
+        required: false
+        default: ${{ github.event.repository.name }}
+
+permissions:
+  contents: write
+
+jobs:
+  auto-tag:
+    name: Auto Tag
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Auto Tag
+        uses: mkaraki/mkarakiapps-releasing-tool@v0.1.6
+        with:
+          command: auto-tag
+          version-file: ${{ inputs.version-file }}
+          version-file-format: ${{ inputs.version-file-format }}
+          local-patch-prefix: ${{ inputs.local-patch-prefix }}
+          scm: ${{ inputs.scm }}
+          github-token: ${{ inputs.github-token || secrets.GITHUB_TOKEN }}
+          owner: ${{ inputs.owner }}
+          repo: ${{ inputs.repo }}
