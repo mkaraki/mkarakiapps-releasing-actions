@@ -1,0 +1,14 @@
+name: Tagging (this repo)
+on:
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  auto-tag:
+    uses: ./.github/workflows/auto-tag.yaml
+    with:
+      version-file: VERSION.php
+      version-file-format: php
+      scm: local-dry
