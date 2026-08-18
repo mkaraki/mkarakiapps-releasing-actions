@@ -11,7 +11,7 @@
             ],
             "depNameTemplate": "mkaraki/mkarakiapps-releasing-tool",
             "datasourceTemplate": "github-tags",
-            "versioningTemplate": "semver"
+            "versioningTemplate": "semver-coerced"
         }
     ],
     "packageRules": [
