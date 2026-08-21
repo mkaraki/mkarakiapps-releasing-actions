@@ -40,7 +40,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Auto Tag
-        uses: mkaraki/mkarakiapps-releasing-tool@v0.2.6
+        uses: mkaraki/mkarakiapps-releasing-tool@v0.2.7
         with:
           command: auto-tag
           version-file: ${{ inputs.version-file }}
